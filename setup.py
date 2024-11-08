@@ -4,11 +4,6 @@ It is used by setuptools (or distutils in older Python versions) to define the c
 It contains metadata and instructions for building and installing the project. 
 
 '''
-
-### Here's a breakdown of
-"""
-the key elements in a typical setup.py file:
-1. **Metadata**: This includes information about the project, such as its name, version, author
 - from setuptools import setup`: This line imports the setup function from the setuptools library, which is
 used to define the project's configuration.
 - setup()`: This is the main function that defines the project's configuration. It takes a
