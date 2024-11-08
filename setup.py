@@ -5,7 +5,7 @@ It contains metadata and instructions for building and installing the project.
 
 '''
 
-"""
+
 - from setuptools import setup`: This line imports the setup function from the setuptools library, which is
 used to define the project's configuration.
 - setup()`: This is the main function that defines the project's configuration. It takes a
