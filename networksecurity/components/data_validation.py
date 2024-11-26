@@ -2,7 +2,7 @@ from ..entity.artifact_entity import DataIngestionArtifact,DataValidationArtifac
 from ..entity.config_entity import DataValidationConfig
 from ..exception.exception import NetworkSecurityException 
 from ..logging.logger import logging 
-from networksecurity.constants.training_pipeline import SCHEMA_FILE_PATH
+from networksecurity.constant.training_pipeline import SCHEMA_FILE_PATH
 from scipy.stats import ks_2samp
 import pandas as pd
 import os,sys
@@ -107,6 +107,7 @@ class DataValidation:
                 drift_report_file_path=self.data_validation_config.drift_report_file_path,
             )
             return data_validation_artifact
+        
         except Exception as e:
             raise NetworkSecurityException(e,sys)
 
