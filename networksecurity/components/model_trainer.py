@@ -8,7 +8,6 @@ from networksecurity.entity.artifact_entity import DataTransformationArtifact,Mo
 from networksecurity.entity.config_entity import ModelTrainerConfig
 
 
-
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 from networksecurity.utils.main_utils.utils import save_object,load_object
 from networksecurity.utils.main_utils.utils import load_numpy_array_data,evaluate_models
@@ -25,6 +24,13 @@ from sklearn.ensemble import (
 )
 
 import mlflow
+
+# dagshub --> mlflow experimentation in remote repository 
+
+import dagshub
+dagshub.init(repo_owner='SM0311', repo_name='networksecurity', mlflow=True)
+
+
 
 
 class ModelTrainer:
@@ -59,21 +65,21 @@ class ModelTrainer:
         params={
             "Decision Tree": {
                 'criterion':['gini', 'entropy', 'log_loss'],
-                # 'splitter':['best','random'],
-                # 'max_features':['sqrt','log2'],
+                'splitter':['best','random'],
+                'max_features':['sqrt','log2'],
             },
             "Random Forest":{
-                #'criterion':['gini', 'entropy', 'log_loss'],
+                'criterion':['gini', 'entropy', 'log_loss'],
                 
-                # 'max_features':['sqrt','log2',None],
+                'max_features':['sqrt','log2',None],
                 'n_estimators': [8,16,128,256]
             },
             "Gradient Boosting":{
-                # 'loss':['log_loss', 'exponential'],
+                'loss':['log_loss', 'exponential'],
                 'learning_rate':[.1,.01,.05,.001],
                 'subsample':[0.6,0.7,0.85,0.9],
-                # 'criterion':['squared_error', 'friedman_mse'],
-                # 'max_features':['auto','sqrt','log2'],
+                'criterion':['squared_error', 'friedman_mse'],
+                'max_features':['auto','sqrt','log2'],
                 'n_estimators': [8,16,64,128,256]
             },
             "Logistic Regression":{},
@@ -115,6 +121,9 @@ class ModelTrainer:
 
         Network_model = NetworkModel(preprocessor=preprocessor, model= best_model)
         save_object(self.model_trainer_config.trained_model_file_path, obj=NetworkModel)
+
+        # Model pusher
+        save_object("final_model/model.pkl",best_model)
 
         ## Model Trainer Artifact 
         model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
