@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/MLOps/Network%20Security%20System/mlruns/0/e13fdf3e427b42a3a01d74a7e8b6eed4/artifacts
+end_time: 1734235162780
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e13fdf3e427b42a3a01d74a7e8b6eed4
+run_name: mercurial-roo-828
+run_uuid: e13fdf3e427b42a3a01d74a7e8b6eed4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734235159365
+status: 3
+tags: []
+user_id: msura

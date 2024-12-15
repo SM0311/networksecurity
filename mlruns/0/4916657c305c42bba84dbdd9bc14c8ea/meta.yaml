@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/MLOps/Network%20Security%20System/mlruns/0/4916657c305c42bba84dbdd9bc14c8ea/artifacts
+end_time: 1734235165552
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4916657c305c42bba84dbdd9bc14c8ea
+run_name: auspicious-snipe-843
+run_uuid: 4916657c305c42bba84dbdd9bc14c8ea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734235162804
+status: 3
+tags: []
+user_id: msura
